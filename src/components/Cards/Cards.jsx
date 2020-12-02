@@ -39,7 +39,7 @@ import cx from 'classnames';
                         <Typography variant= "h5">
                         <CountUp
                             start= {0}
-                            end={confirmed.value}
+                            end={recovered.value}
                             duration={2.5}
                             separator="."
                         />
@@ -56,7 +56,7 @@ import cx from 'classnames';
                         <Typography variant= "h5">
                         <CountUp
                             start= {0}
-                            end={confirmed.value}
+                            end={deaths.value}
                             duration={2.5}
                             separator="."
                         />

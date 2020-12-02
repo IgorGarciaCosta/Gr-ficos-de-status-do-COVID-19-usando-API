@@ -20,12 +20,12 @@ import styles from './Chart.module.css';
                 labels:dailyData.map(({date})=>date),//returns an array of all the dates
                 datasets:[{
                     data:dailyData.map(({confirmed})=>confirmed),
-                    label:'Infected',
+                    label:'Infectados',
                     borderColor:'#3333ff',
                     fill: true,//fill the space below the chart
                 },{
                     data:dailyData.map(({deaths})=>deaths),
-                    label:'Infected',
+                    label:'Mortos',
                     borderColor:'red',
                     backgroundColor:'rgba(255, 0, 0, 0.5)',
                     fill: true,//fill the space below the chart
