@@ -3,7 +3,7 @@ import {fetchDailyData}from '../../api';
 import {Line, Bar} from 'react-chartjs-2';
 import styles from './Chart.module.css';
 
- const Charts = ()=>{
+ const Charts = ({data:{confirmed, recovered, deaths}, country})=>{
      const [dailyData, setDailyData] = useState([]);
      useEffect(()=>{
         const fetchAPI=async()=>{
@@ -11,7 +11,8 @@ import styles from './Chart.module.css';
         }
 
         fetchAPI();
-     });
+     },[]);//this empty array makes the useEffect run just once
+     //he behave like a componentDidMount
 
      const lineChart = (
         dailyData.length?//is the first date avaliable?
@@ -37,9 +38,38 @@ import styles from './Chart.module.css';
 
      );
 
+
+    console.log(confirmed.value, recovered.value, deaths.value)
+
+     const barChart = (//this is a JSX structure
+        confirmed?//the data exists?
+            (
+                <Bar
+                    data = {{
+                        labels:['Infectados', 'Recuperados', 'Mortos'],
+                        datasets: [{
+                            label: 'Pessoas',
+                            backgroundColor:[
+                                'rgba(0, 0, 255, 0.5)',
+                                'rgba(0, 255, 0, 0.5)',
+                                'rgba(255, 0, 0, 0.5)'
+                            ],
+                            data:[confirmed.value, recovered.value, deaths.value]
+                        }]
+                    }}
+
+                    options = {{
+                        legend: {display:false},
+                        title:{display:true, text:`Estado atual em ${country}`}
+                    }}
+                />
+            ):null
+
+     );
+
      return(
          <div className={styles.container}>
-             {lineChart}
+             {country? barChart:lineChart}
          </div>
      )
  }

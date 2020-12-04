@@ -28,13 +28,13 @@ class App extends React.Component{
 
     render(){
 
-        const{data} = this.state;//catch the data from the setState
+        const{data, country} = this.state;//catch the data from the setState
 
         return(
             <div className={styles.container}>
                 <Cards data={data}/>
                 <CountryPicker handleCountryChange = {this.handleCountryChange}/>
-                <Chart/>
+                <Chart data= {data} country = {country}/>
             </div>
         )
     }
