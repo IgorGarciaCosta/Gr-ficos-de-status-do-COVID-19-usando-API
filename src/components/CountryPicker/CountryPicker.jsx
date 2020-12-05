@@ -20,7 +20,7 @@ import {fetchCountries} from '../../api'//importa a função
      return(
          <FormControl className = {styles.formControl}>
              <NativeSelect defaultValue="" onChange = {(e)=>handleCountryChange(e.target.value)}>
-                 <option value = "globel">Global</option>
+                 <option value = "">Global</option>
                  {fetchedCountries.map((country, i)=><option key={i} value= {country}>{country}</option>)}
              </NativeSelect>
          </FormControl>

@@ -39,7 +39,6 @@ import styles from './Chart.module.css';
      );
 
 
-    console.log(confirmed.value, recovered.value, deaths.value)
 
      const barChart = (//this is a JSX structure
         confirmed?//the data exists?
